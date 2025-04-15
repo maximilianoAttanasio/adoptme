@@ -1,6 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from './docs/swagger.js'; // Ajustá el path si lo cambiaste
+
 
 import usersRouter from "./routes/users.router.js";
 import petsRouter from "./routes/pets.router.js";
@@ -10,10 +13,12 @@ import mocksRouter from "./routes/mocks.router.js";
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-const connection = mongoose.connect(`mongodb://localhost:27017/adoptme`);
+const connection = mongoose.connect(`mongodb+srv://UselessMawi:123321@pruebas-cluster.0pb2xbo.mongodb.net/?retryWrites=true&w=majority&appName=pruebas-cluster&dbName=adoptmedb`);
 
 app.use(express.json());
 app.use(cookieParser());
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/users", usersRouter);
 app.use("/api/pets", petsRouter);
