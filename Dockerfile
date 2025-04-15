@@ -13,7 +13,7 @@ RUN npm install
 # Copia el resto del código
 COPY . .
 
-# Expone el puerto que usa Express (ajusta si es otro)
+# Expone el puerto que usa Express
 EXPOSE 8080
 
 # Comando para iniciar la app

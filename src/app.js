@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import swaggerUi from 'swagger-ui-express';
-import swaggerSpec from './docs/swagger.js'; // Ajustá el path si lo cambiaste
+import swaggerSpec from './docs/swagger.js';
 
 
 import usersRouter from "./routes/users.router.js";
